@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
-const config = require(`./config/${isDev ? 'dev' : 'prod'}.js`)
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -87,7 +86,7 @@ module.exports = {
       React: 'react',
     }),
 
-    new webpack.DefinePlugin(config)
+    // new webpack.DefinePlugin(config)
   ],
   optimization: {
     runtimeChunk: {

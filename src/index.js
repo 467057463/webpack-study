@@ -2,14 +2,17 @@
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import history from '@/utils/history';
+import { StoreProvider } from '@/hook/useStore';
 import App from '@/App';
 import '@/styles/index';
 import request from '@/utils/request';
 
 ReactDOM.render(
-  <Router history={history}>
-    <App />
-  </Router>,
+  <StoreProvider>
+    <Router history={history}>
+      <App />
+    </Router>
+  </StoreProvider>,
   document.getElementById('root')
 );
 
