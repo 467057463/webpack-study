@@ -2,8 +2,12 @@ const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base');
 const apiMocker = require('mocker-api');
 const path = require('path')
+const Dotenv = require('dotenv-webpack');
 
-module.exports = merge(baseConfig, {
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+
+const config = merge(baseConfig, {
   devtool: 'inline-cheap-module-source-map',
 
   devServer: {
@@ -19,5 +23,14 @@ module.exports = merge(baseConfig, {
     onBeforeSetupMiddleware({app}){
       apiMocker(app, path.resolve('./mock/mocker.js'))
     }
-  }
+  },
+
+  plugins: [
+    new Dotenv({
+      defaults: path.resolve(__dirname, './.env'),
+      path: path.resolve(__dirname, './.env.development')
+    })
+  ]
 })
+
+module.exports = smp.wrap(config)

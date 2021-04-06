@@ -2,5 +2,7 @@ node_modules
 dist
 yarn-error.log
 yarn.lock
-config/dev.js
-config/prod.js
+
+.env
+.env.development
+.env.production

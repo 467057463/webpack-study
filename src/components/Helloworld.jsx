@@ -6,7 +6,7 @@ function Helloworld(){
   return(
     <div className='hello-world'>
       <img className='logo' src={logo}/>
-      <span>testssss aaa bbb {DEV}</span>
+      <span>test {process.env.DEV}</span>
     </div>
   )
 }
