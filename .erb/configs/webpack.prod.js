@@ -8,6 +8,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 
+
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
 
@@ -20,7 +21,7 @@ const config =  merge(baseConfig, {
     new Dotenv({
       defaults: path.resolve(__dirname, './.env'),
       path: path.resolve(__dirname, './.env.production')
-    })
+    }),
   ],
   optimization: {
     minimize: true,

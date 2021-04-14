@@ -6,15 +6,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 module.exports = {
   mode: isDev ? "development" : "production",
   
   entry: {
-    index: './src/index.js',
+    index: path.join(__dirname, '../../src/index.js'),
   },
   output:{
-    path: path.resolve(__dirname, 'dist'), 
+    path: path.resolve(__dirname, '../../dist'), 
     filename: 'index.[chunkhash:6].js',
     publicPath: '/'
   },
@@ -31,7 +30,7 @@ module.exports = {
         use: [{
           loader: 'babel-loader'
         }],
-        include: [path.resolve(__dirname, 'src')]
+        include: [path.resolve(__dirname, '../../src')]
         // exclude: /node_modules/
       },
       {
@@ -44,7 +43,7 @@ module.exports = {
             loader: "sass-loader",
           }
         ],
-        include: [path.resolve(__dirname, 'src')]
+        include: [path.resolve(__dirname, '../../src')]
         // exclude: /node_modules/
       },
       {
