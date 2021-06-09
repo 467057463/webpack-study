@@ -4,7 +4,7 @@ import { ArticlesModel } from './articles';
 
 const RootStore = types
   .model({
-    title: types.optional(types.string, 'ssss'),
+    title: '首页',
     articles: types.optional(ArticlesModel, {})
     // article: types.optional(ArticleStore, {}),
     // articles: types.optional(ArticlesStore, {}),
@@ -18,3 +18,7 @@ const RootStore = types
 
 export const store = RootStore.create();
 console.log(getSnapshot(store))
+
+onSnapshot(store, (snapshot) => {
+  console.dir(snapshot)
+})

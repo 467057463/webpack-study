@@ -1,14 +1,14 @@
 import logo from './../images/logo.png';
+import { store } from '@/store';
 import { useStore } from '@/hook/useStore';
+import { observer } from 'mobx-react';
 
-function Helloworld(){
+export default observer(() => {
   const title = useStore('title');
   return(
-    <div className='hello-world'>
+    <div onClick={()=> store.setTitle('sssb')} className='hello-world'>
       <img className='logo' src={logo}/>
       <span>{title} test {process.env.DEV}</span>
     </div>
   )
-}
-
-export default Helloworld
+})
