@@ -8,7 +8,7 @@ export default observer(() => {
   return(
     <div onClick={()=> store.setTitle('sssb')} className='hello-world'>
       <img className='logo' src={logo}/>
-      <span>{title} test {process.env.DEV}</span>
+      <span>{title} testabcdef {process.env.DEV}</span>
     </div>
   )
 })

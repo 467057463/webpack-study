@@ -6,8 +6,8 @@
   "author": "m2 <467057463@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack  --config webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack  --config ./.erb/configs/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

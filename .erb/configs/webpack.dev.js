@@ -3,7 +3,6 @@ const baseConfig = require('./webpack.base');
 const apiMocker = require('mocker-api');
 const path = require('path')
 const Dotenv = require('dotenv-webpack');
-
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
 
@@ -29,7 +28,8 @@ const config = merge(baseConfig, {
     new Dotenv({
       defaults: path.resolve(__dirname, './.env'),
       path: path.resolve(__dirname, './.env.development')
-    })
+    }),
+
   ]
 })
 
