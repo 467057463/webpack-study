@@ -1,8 +1,7 @@
 import axios from 'axios';
-
 const axiosInstance = axios.create({
-  // baseURL: process.env.API_BASE_URL,
-  // timeout: 40000,
+  baseURL: 'https://api.mmisme.cn',
+  timeout: 40000,
   // headers: { 
   //   'Content-type': 'application/json;charset=UTF-8'
   // },
@@ -12,6 +11,12 @@ const axiosInstance = axios.create({
   //   const { total, loaded } = progressEvent;
   //   store.app.setPercent(loaded / total)
   // }
+})
+
+axiosInstance.interceptors.response.use(response => {
+  return response.data.data;
+}, error => {
+  Promise.reject(error)
 })
 
 export default axiosInstance

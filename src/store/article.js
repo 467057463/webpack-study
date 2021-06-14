@@ -1,7 +1,7 @@
 import { types } from "mobx-state-tree"
 
 export default types.model('Article', {
-  _id: '',
+  _id: types.identifier,
   title: '',
   content: '',
   createdAt: '',
@@ -18,3 +18,8 @@ export default types.model('Article', {
     []
   )
 })
+// .hooks(self => ({
+//   afterCreate(){
+//     console.log("created after")
+//   }
+// }))

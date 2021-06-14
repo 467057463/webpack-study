@@ -8,8 +8,9 @@ import '@/styles/index';
 import request from '@/utils/request';
 
 import { types, getSnapshot, onSnapshot } from 'mobx-state-tree';
-import articles from '@/store/articles';
-console.log(getSnapshot(articles))
+import { store } from '@/store';
+console.log(getSnapshot(store))
+window._store = store;
 
 ReactDOM.render(
   <StoreProvider>

@@ -1,23 +1,25 @@
-import { Link } from 'react-router-dom';
-import Helloworld from '../components/Helloworld.jsx';
+import { useEffect } from 'react';
+import { observer } from 'mobx-react';
+import { useStore } from '@/hook/useStore';
+import ArticleItem from '@/views/artilces/components/ArticleItem';
 
-const home = () =>　{
+// import Helloworld from '../components/Helloworld.jsx';
+
+export default observer(() =>{
+  const articles = useStore('articles');
+  
+  useEffect(()=>{
+    articles.fetchArticleList();
+    return () => {
+      // articles.reset();
+    }
+  }, [])
+
   return(
     <div className="home">
-      <Helloworld/>
-      <ul>
-        <li>
-          <Link to='/articles/1'>文章详情</Link>
-        </li>
-        <li>
-          <Link to='/articles/new'>添加文章</Link>
-        </li>
-        <li>
-          <Link to='/articles/1/edit'>编辑文章</Link>
-        </li>
-      </ul>
+      {
+        [...articles.list].map(([id, item], index) => <ArticleItem key={id} {...item}/>)
+      }
     </div>
   )
-}
-
-export default home;
+})
