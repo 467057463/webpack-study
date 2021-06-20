@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { useStore } from '@/hook/useStore';
-import ArticleItem from '@/views/artilces/components/ArticleItem';
+import ArticleItem from '@/pages/artilces/components/ArticleItem';
 
 // import Helloworld from '../components/Helloworld.jsx';
 

@@ -1,0 +1,28 @@
+.user-drawer{
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  .user-link{
+    margin-top: 10px;
+    border-top: 1px solid #e8e8e880;
+    li{
+      height: 48px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e8e8e880;
+      cursor: pointer;
+    }
+    a{
+      color: #000;
+      display: block;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .anticon{
+      margin-right: 10px;
+    }
+  }  
+}

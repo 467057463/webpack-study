@@ -1,5 +1,8 @@
 @import '~antd/dist/antd.css';
-@import './header.scss';
+@import './components/progress.scss';
+@import './components/header.scss';
+@import './components/userDrawer.scss';
+@import './pages/login.scss';
 
 // 框架布局
 #root{

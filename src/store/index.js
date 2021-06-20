@@ -1,22 +1,16 @@
 import { types, getSnapshot, onSnapshot, applySnapshot, onAction, onPatch, addMiddleware } from 'mobx-state-tree';
 
 import { ArticlesModel } from './articles';
+import UserModel from './user';
+import appModel from './app';
 
 const RootStore = types
   .model({
-    title: '首页',
-    icon: 'logo',
-    articles: types.optional(ArticlesModel, {})
-    // article: types.optional(ArticleStore, {}),
-    // articles: types.optional(ArticlesStore, {}),
-    // auth: types.optional(AuthStore, {})
+    app: types.optional(appModel, {}),
+    articles: types.optional(ArticlesModel, {}),
+    user: types.optional(UserModel, {})   
   })
-  .actions(self => ({
-    setConfig(config){
-      self.title = config.title || '首页';
-      self.icon = config.icon || 'logo';
-    }
-  }))
+
  
 
 export const store = RootStore.create();

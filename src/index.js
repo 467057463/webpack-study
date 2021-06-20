@@ -5,11 +5,8 @@ import history from '@/utils/history';
 import { StoreProvider } from '@/hook/useStore';
 import App from '@/App';
 import '@/styles/index';
-import request from '@/utils/request';
 
-import { types, getSnapshot, onSnapshot } from 'mobx-state-tree';
 import { store } from '@/store';
-console.log(getSnapshot(store))
 window._store = store;
 
 ReactDOM.render(
@@ -21,7 +18,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
+// 如果已登录获取当前用户的信息
+if(localStorage.getItem('access_token')){
+  store.user.getCurrentUser();
+}
 
 // request.get('user').then(res => {
 //   console.log(res)
