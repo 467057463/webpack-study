@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   mode: isDev ? "development" : "production",
   
@@ -84,7 +85,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-
     // new webpack.DefinePlugin(config)
   ],
   optimization: {

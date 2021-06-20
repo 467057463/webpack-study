@@ -11,10 +11,7 @@ const RootStore = types
     user: types.optional(UserModel, {})   
   })
 
- 
-
 export const store = RootStore.create();
-// console.log(getSnapshot(store))
 
 onSnapshot(store, (snapshot) => {
   console.dir(snapshot)
