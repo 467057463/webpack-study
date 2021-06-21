@@ -4,6 +4,7 @@ import { getList } from '@/actions/articles';
 
 export const ArticlesModel = types.model('Articles', {
   loading: false,
+  state: 'pending',
   count: types.optional(types.number, 0),
   page: types.optional(types.number, 0),
   quantity: types.optional(types.number, 0),
@@ -22,16 +23,22 @@ export const ArticlesModel = types.model('Articles', {
       res.list.forEach(item => {
         self.list.set(item._id, item)
       })
+      self.state = "done"
       // self.list = res.list;
       // console.log(res)
     } catch (error) {
       console.log(error)
+      self.state = "error"
     } finally {
       self.loading = false;      
     }
   })
+  const setCurrent = (id) => {
+    self.current = id;
+  }
   return{
-    fetchArticleList
+    fetchArticleList,
+    setCurrent
   }
 })
 

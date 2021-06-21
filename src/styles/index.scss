@@ -2,7 +2,9 @@
 @import './components/progress.scss';
 @import './components/header.scss';
 @import './components/userDrawer.scss';
+@import './components/loading.scss';
 @import './pages/login.scss';
+@import './pages/home.scss';
 
 // 框架布局
 #root{
@@ -12,4 +14,15 @@
   height: calc(100vh - 50px);
   padding-top: 50px;
   box-sizing: content-box;
+}
+
+.loadmore, .nomore{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #808080;
+  .anticon{
+    margin-right: 10px;;
+  }
 }

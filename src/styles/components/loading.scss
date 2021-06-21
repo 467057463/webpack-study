@@ -1,0 +1,14 @@
+.loading{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+  width: 100%;
+  .anticon{
+    color: #349eff;
+    font-size: 24px;
+    margin-bottom: 10px;;
+  }
+}
