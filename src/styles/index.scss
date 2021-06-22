@@ -1,10 +1,12 @@
 @import '~antd/dist/antd.css';
+@import './markdown.scss';
 @import './components/progress.scss';
 @import './components/header.scss';
 @import './components/userDrawer.scss';
 @import './components/loading.scss';
 @import './pages/login.scss';
 @import './pages/home.scss';
+@import './pages/articleShow.scss';
 
 // 框架布局
 #root{

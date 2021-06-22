@@ -4,8 +4,12 @@ export default types.model('Article', {
   _id: types.identifier,
   title: '',
   content: '',
+  contentHtml: '',
   createdAt: '',
   describe: '',
+  menu: types.frozen(
+    []
+  ),
   meta: types.frozen({
     view: 0,
     like: 0

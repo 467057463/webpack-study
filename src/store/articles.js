@@ -1,9 +1,11 @@
 import { types, flow } from 'mobx-state-tree';
 import Article from './article';
-import { getList } from '@/actions/articles';
+import { getList, getArticle } from '@/actions/articles';
 
 export const ArticlesModel = types.model('Articles', {
+  articleLoading: false,
   loading: false,
+  articleState: 'pending',
   state: 'pending',
   count: types.optional(types.number, 0),
   page: types.optional(types.number, 0),
@@ -36,9 +38,25 @@ export const ArticlesModel = types.model('Articles', {
   const setCurrent = (id) => {
     self.current = id;
   }
+  const fetchArticle = flow(function*(id){
+    self.articleLoading = true;
+    try {
+      const res = yield getArticle(id);
+      // console.log(res)
+      self.list.set(id, res)
+      self.current = id;
+      self.articleState = 'done';
+    } catch (error) {
+      console.log(error)
+      self.articleState = 'error';
+    } finally {
+      self.articleLoading = false;      
+    }
+  })
   return{
     fetchArticleList,
-    setCurrent
+    setCurrent,
+    fetchArticle
   }
 })
 
