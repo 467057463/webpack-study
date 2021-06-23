@@ -1,5 +1,7 @@
 @import '~antd/dist/antd.css';
 @import './markdown.scss';
+@import '~highlight.js/styles/a11y-dark.css';
+@import './prism-xonokai.css';
 @import './components/progress.scss';
 @import './components/header.scss';
 @import './components/userDrawer.scss';
@@ -27,4 +29,18 @@
   .anticon{
     margin-right: 10px;;
   }
+}
+
+pre {
+  background: #2b2b2b!important;
+  color: #f8f8f2!important;
+  font-size: 14px;
+}
+
+pre code {
+  color: #f8f8f2!important;
+}
+
+div.code {
+  white-space: pre;
 }

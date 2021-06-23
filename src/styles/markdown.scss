@@ -75,29 +75,29 @@
   overflow: hidden;
 }
 
-.markdown-body pre {
-  overflow: auto;
-  position: relative;
-  line-height: 1.75;
-  // width: calc(100% - 100px);
-  padding-left: 0!important;
-  padding-right: 0!important;
-  code > span{
-    padding-left: 1em!important;
-    padding-right: 1em!important;
-  }
-}
+// .markdown-body pre {
+//   overflow: auto;
+//   position: relative;
+//   line-height: 1.75;
+//   // width: calc(100% - 100px);
+//   padding-left: 0!important;
+//   padding-right: 0!important;
+//   code > span{
+//     padding-left: 1em!important;
+//     padding-right: 1em!important;
+//   }
+// }
 
-.markdown-body pre>code {
-  font-size: 12px;
-  // padding: 15px 12px;
-  margin: 0;
-  word-break: normal;
-  display: block;
-  overflow-x: auto;
-  color: #333;
-  // background: #f8f8f8
-}
+// .markdown-body pre>code {
+//   font-size: 12px;
+//   // padding: 15px 12px;
+//   margin: 0;
+//   word-break: normal;
+//   display: block;
+//   overflow-x: auto;
+//   color: #333;
+//   // background: #f8f8f8
+// }
 
 .markdown-body a {
   text-decoration: none;

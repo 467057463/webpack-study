@@ -48,6 +48,7 @@
     "@loadable/component": "^5.14.1",
     "antd": "^4.16.2",
     "axios": "^0.21.1",
+    "highlight.js": "^11.0.1",
     "mobx": "^6.1.8",
     "mobx-react": "^7.1.0",
     "mobx-state-tree": "^5.0.1",

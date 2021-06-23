@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import { useEffect } from 'react';
 import { useStore } from '@/hook/useStore';
 import moment from 'moment';
+import hljs from 'highlight.js';
 import { 
   Link, 
   useParams, 
@@ -41,6 +42,13 @@ export default observer(() =>　{
       articles.fetchArticle(id)
     }
   }, [])
+
+  // useEffect(() =>{
+  //   document.querySelectorAll('div.code').forEach(el => {
+  //     // then highlight each
+  //     hljs.highlightElement(el);
+  //   });
+  // })
   
   const article = articles.current;
   if(articles.articleState === 'pending'){
@@ -78,15 +86,10 @@ export default observer(() =>　{
 
         <div
           className="markdown-body content"
-          dangerouslySetInnerHTML = {{ __html: article.contentHtml }} 
+          dangerouslySetInnerHTML = {{ 
+            __html: article.contentHtml 
+          }} 
         />
-        {/* <Paragraph 
-          className='content markdown-body'
-        >
-          <div
-            dangerouslySetInnerHTML = {{ __html: article.contentHtml }} 
-          />
-        </Paragraph> */}
 
         <div className='meta'>    
           <div className='meta-data'>           
