@@ -31,6 +31,7 @@ import {
 import avatar from '@/images/avatar.jpg';
 
 import Loading from '@/components/Loading';
+import MenuDarawer from './components/MenuDarawer';
 
 export default observer(() =>　{
   const { id } = useParams()
@@ -111,6 +112,7 @@ export default observer(() =>　{
             </ul>
           } 
         </div>
+        <MenuDarawer menu={article.menu}/>
       </Typography>
     </div>
   )
