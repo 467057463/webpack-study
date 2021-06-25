@@ -1,7 +1,7 @@
 import request from '@/utils/request';
 
-export function getList(){
-  return request.get('/articles');
+export function getList(params){
+  return request.get('/articles', params);
 }
 
 export function getArticle(id){

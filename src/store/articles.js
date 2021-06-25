@@ -14,10 +14,11 @@ export const ArticlesModel = types.model('Articles', {
   current: types.maybe(types.reference(types.late(() => Article)))
 })
 .actions(self => {
-  const fetchArticleList = flow(function*() {
+  const fetchArticleList = flow(function*(page) {
     self.loading = true;
     try {
-      const res = yield getList();
+      console.log('fetch')
+      const res = yield getList({page});
       console.log(res)
       self.count = res.count;
       self.page = res.page;
@@ -37,6 +38,7 @@ export const ArticlesModel = types.model('Articles', {
   })
   const setCurrent = (id) => {
     self.current = id;
+    self.articleState = "done";
   }
   const fetchArticle = flow(function*(id){
     self.articleLoading = true;
@@ -53,10 +55,24 @@ export const ArticlesModel = types.model('Articles', {
       self.articleLoading = false;      
     }
   })
+
+  const reset = () => {
+    self.articleLoading = false;
+    self.loading = false;
+    self.articleState = 'pending';
+    self.state = 'pending';
+    self.count =  0;
+    self.page =  0;
+    self.quantity =  0;
+    self.list = {};
+    self.current = undefined;
+  }
+
   return{
     fetchArticleList,
     setCurrent,
-    fetchArticle
+    fetchArticle,
+    reset
   }
 })
 

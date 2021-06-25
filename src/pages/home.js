@@ -11,12 +11,11 @@ import Loading from '@/components/Loading';
 export default observer(() =>{
   const articles = useStore('articles');
   
-  // useEffect(()=>{
-  //   articles.fetchArticleList();
-  //   return () => {
-  //     // articles.reset();
-  //   }
-  // }, [])
+  useEffect(()=>{
+    if(articles.list.size === 1){
+      articles.reset();
+    }
+  }, [])
 
   function loadFunc(page){
     articles.fetchArticleList(page);

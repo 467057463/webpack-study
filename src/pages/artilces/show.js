@@ -41,16 +41,11 @@ export default observer(() =>　{
   useEffect(() => {
     if(!articles.list.get(id)){
       articles.fetchArticle(id)
+    } else {
+      articles.setCurrent(id)
     }
   }, [])
 
-  // useEffect(() =>{
-  //   document.querySelectorAll('div.code').forEach(el => {
-  //     // then highlight each
-  //     hljs.highlightElement(el);
-  //   });
-  // })
-  
   const article = articles.current;
   if(articles.articleState === 'pending'){
     return <Loading/>;
