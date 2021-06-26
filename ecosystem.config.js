@@ -18,7 +18,7 @@ module.exports = {
       user : 'root',
       host : '95.179.164.10',
       ref  : 'origin/master',
-      repo : 'git@github.com:467057463/blog_front.git',
+      repo : 'git@github.com:467057463/webpack-study.git',
       path : '/var/www/blog_front',
       'pre-deploy-local': '',
       'post-deploy' : 'npm --production=false install && npm run build',
