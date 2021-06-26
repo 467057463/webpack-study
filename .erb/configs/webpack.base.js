@@ -35,7 +35,7 @@ module.exports = {
         // exclude: /node_modules/
       },
       {
-        test: /\.(s)?css$/,
+        test: /\.(scss|css)$/,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -44,7 +44,7 @@ module.exports = {
             loader: "sass-loader",
           }
         ],
-        include: [path.resolve(__dirname, '../../src')]
+        // include: [path.resolve(__dirname, '../../src')]
         // exclude: /node_modules/
       },
       {

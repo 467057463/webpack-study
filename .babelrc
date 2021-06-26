@@ -20,6 +20,16 @@
       "@babel/plugin-transform-runtime", {
         "corejs": 3
       }
-    ]
+    ],
+    ["prismjs", {
+      "languages": ["javascript", "css", "markup"],
+      "plugins": [
+        "line-numbers",
+        "line-highlight",
+        // "diff-highlight"
+      ],
+      "theme": "okaidia",
+      "css": true
+  }]
   ]
 }

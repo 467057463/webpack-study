@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { observer } from 'mobx-react';
-import { Editor, Viewer } from '@bytemd/react';
+import { Editor } from '@bytemd/react';
 import { Form, Input, } from 'antd';
 import { message } from 'antd';
 import { useParams } from 'react-router-dom';
@@ -14,6 +14,7 @@ import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";
 import mediumZoom from "@bytemd/plugin-medium-zoom";
 import save from './puglins/save';
+import prism from './puglins/prism';
 
 
 
@@ -29,9 +30,10 @@ export default observer(() =>　{
     return [
       gfm(), 
       // gemoji(),
-      highlight(), 
-      mediumZoom(),
-      save()
+      // highlight(), 
+      // mediumZoom(),
+      // save(),
+      prism()
     ]
   }, [])
 
