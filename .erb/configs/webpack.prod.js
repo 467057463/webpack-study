@@ -15,7 +15,7 @@ const smp = new SpeedMeasurePlugin();
 const config =  merge(baseConfig, {
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name]_[hash:6].css'
+      filename: 'css/[name]_[fullhash:6].css'
     }),
     new BundleAnalyzerPlugin(),
     new Dotenv({

@@ -55,7 +55,7 @@ module.exports = {
             options: {
               limit: 10240,
               esModule: false,
-              name: '[name]_[hash:6].[ext]',
+              name: '[name]_[fullhash:6].[ext]',
               outputPath: 'assets' 
             }
           }
