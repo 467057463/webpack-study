@@ -1,7 +1,8 @@
 @import '~antd/dist/antd.css';
 @import './markdown.scss';
-@import '~highlight.js/styles/a11y-dark.css';
+@import "~highlight.js/styles/a11y-dark.css";
 @import './prism-xonokai.css';
+@import 'bytemd/dist/index.min.css';
 @import './components/progress.scss';
 @import './components/header.scss';
 @import './components/userDrawer.scss';
@@ -9,6 +10,7 @@
 @import './pages/login.scss';
 @import './pages/home.scss';
 @import './pages/articleShow.scss';
+@import './pages/articleEdit.scss';
 
 // 框架布局
 #root{
@@ -35,10 +37,3 @@ pre {
   font-size: 14px;
 }
 
-// pre code {
-//   color: #f8f8f2!important;
-// }
-
-// div.code {
-//   white-space: pre;
-// }

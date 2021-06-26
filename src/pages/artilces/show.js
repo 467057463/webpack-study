@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '@/hook/useStore';
 import moment from 'moment';
 import hljs from 'highlight.js';
@@ -34,20 +34,22 @@ import Loading from '@/components/Loading';
 import MenuDarawer from './components/MenuDarawer';
 
 export default observer(() =>　{
+  const [loading, setLoading] = useState(true);
   const { id } = useParams()
   const { articles, user } = useStore();
   const match = useRouteMatch();
   
-  useEffect(() => {
+  useEffect(async () => {
     if(!articles.list.get(id)){
-      articles.fetchArticle(id)
+      await articles.fetchArticle(id)      
     } else {
       articles.setCurrent(id)
     }
+    setLoading(false)
   }, [])
 
   const article = articles.current;
-  if(articles.articleState === 'pending'){
+  if(loading){
     return <Loading/>;
   }
 
@@ -102,7 +104,7 @@ export default observer(() =>　{
                 <Link to={`${match.url}/edit`}>编辑</Link>
               </li>
               <li>
-                <a onClick={() => article.delete(article._id)}>删除</a>
+                <a onClick={() => articles.deleteArticle(article._id)}>删除</a>
               </li>
             </ul>
           } 
