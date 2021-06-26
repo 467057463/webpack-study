@@ -15,7 +15,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const config =  merge(baseConfig, {
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name]_[fullhash:6].css'
+      filename: 'css/[name]_[chunkhash:6].css'
     }),
     // new BundleAnalyzerPlugin(),
     // new Dotenv({
