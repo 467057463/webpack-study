@@ -83,6 +83,9 @@ export const ArticlesModel = types.model('Articles', {
       history.replace(`/articles/${res._id}`)
     } catch(error){
       console.error(error)
+      if(error.statusCode === 401){
+        message.error('没有权限')
+      }
     }
   })
 
@@ -96,6 +99,9 @@ export const ArticlesModel = types.model('Articles', {
       history.replace(`/articles/${res._id}`)
     } catch (error){
       console.error(error)
+      if(error.statusCode === 401){
+        message.error('没有权限')
+      }
     }
   })
 
@@ -108,6 +114,9 @@ export const ArticlesModel = types.model('Articles', {
       history.replace('/')
     } catch (error){
       console.error(error)
+      if(error.statusCode === 401){
+        message.error('没有权限')
+      }
     }
   })
 

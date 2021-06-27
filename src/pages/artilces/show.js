@@ -38,6 +38,7 @@ import gfm from "@bytemd/plugin-gfm";
 
 export default observer(() =>　{
   const [loading, setLoading] = useState(true);
+  const [deleteLoading, setDeleteLoading] = useState(false);
   const { id } = useParams()
   const { articles, user, app } = useStore();
   const match = useRouteMatch();
@@ -58,6 +59,12 @@ export default observer(() =>　{
     app.setTitle({name: articles.current.title, icon: 'logo'})
     setLoading(false)
   }, [])
+
+  async function remove(){
+    setDeleteLoading(true);
+    await articles.deleteArticle(id);
+    setDeleteLoading(false);
+  }
 
   const article = articles.current;
   if(loading){
@@ -113,13 +120,19 @@ export default observer(() =>　{
         </div>    
 
         {
-          user &&
+          user.isLogin && user._id === article.author._id && 
           <ul>
             <li>
               <Link to={`${match.url}/edit`}>编辑</Link>
             </li>
             <li>
-              <a onClick={() => articles.deleteArticle(article._id)}>删除</a>
+              {/* <a onClick={() => remove(article._id)}>删除</a> */}
+              <Button 
+                className='delete-btn'
+                type="link" 
+                onClick={remove}
+                loading={deleteLoading}
+              >删除</Button>
             </li>
           </ul>
         } 

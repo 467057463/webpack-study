@@ -4,6 +4,7 @@ import { message } from 'antd';
 import { login, getCurrentUserInfo } from '@/actions/user';
 
 export default types.model('user', {
+  _id: '',
   name: '',
   isLogin: false,
   loading: false
@@ -12,6 +13,7 @@ export default types.model('user', {
   return { 
     loginSuccess: function(data){
       self.name = data.name;
+      self._id = data._id;
       self.isLogin = true;
     },
     login: flow(function*(data) {
