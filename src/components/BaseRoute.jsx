@@ -8,7 +8,10 @@ export default observer(({name, icon, ...props}) => {
     window.scrollTo(0, 0)
   })
 
-  store.app.setTitle({name, icon})
+  store.app.setTitle({
+    name: name || '', 
+    icon: icon || 'logo'
+  })
   return (
     <Route {...props}/>
   )

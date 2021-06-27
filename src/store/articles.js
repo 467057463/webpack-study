@@ -23,7 +23,7 @@ export const ArticlesModel = types.model('Articles', {
       const res = yield articlesAPI.getList({page});
       console.log(res)
       self.count = res.count;
-      self.page = res.page;
+      self.page = Number(res.page);
       self.quantity = res.quantity;
       res.list.forEach(item => {
         self.list.set(item._id, item)
@@ -74,9 +74,12 @@ export const ArticlesModel = types.model('Articles', {
     try{
       const res = yield articlesAPI.createArticle(data);
       message.info('文章发布成功')
-      // TODO
-      // 新建成功后，后端返回文章数据
+      let clone = self.list.toJSON();      
+      self.list.clear();
       self.list.set(res._id, res)
+      for(let key in clone){
+        self.list.set(key, clone[key])
+      }
       history.replace(`/articles/${res._id}`)
     } catch(error){
       console.error(error)

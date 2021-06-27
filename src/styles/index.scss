@@ -34,10 +34,14 @@
 }
 
 .markdown-body{
-  font-size: 18px;
+  font-size: 16px;
+  > :first-child{
+    // background: red;
+    margin-top: 0;
+  }
 }
 
-pre {
+code[class*=language-]{
   font-size: 14px;
 }
 

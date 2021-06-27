@@ -39,7 +39,7 @@ import gfm from "@bytemd/plugin-gfm";
 export default observer(() =>　{
   const [loading, setLoading] = useState(true);
   const { id } = useParams()
-  const { articles, user } = useStore();
+  const { articles, user, app } = useStore();
   const match = useRouteMatch();
   
   const plugins = useMemo(() => {
@@ -55,6 +55,7 @@ export default observer(() =>　{
     } else {
       articles.setCurrent(id)
     }
+    app.setTitle({name: articles.current.title, icon: 'logo'})
     setLoading(false)
   }, [])
 

@@ -67,7 +67,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpack babel study reop',
+      title: 'm2 前端技术博客',
       template: './public/index.html',
       filename: 'index.html',
       inject: 'body',

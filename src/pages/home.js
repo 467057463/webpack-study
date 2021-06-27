@@ -17,11 +17,19 @@ export default observer(() =>{
     }
   }, [])
 
+  // useEffect(() => {
+  //   articles.fetchArticleList(1)
+  // })
+
   function loadFunc(page){
+    console.log(page)
     articles.fetchArticleList(page);
   }
 
+  // const hasMore = false;
   const hasMore = articles.state === 'pending' || articles.page * articles.quantity < articles.count;
+
+
   return(
     <InfiniteScroll
       className="home"
